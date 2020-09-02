@@ -1,8 +1,21 @@
 
+@font-face {
+    font-family: 'KelmScot';
+    src: local('KelmScot'), url(../fonts/kelmscot.ttf) format('truetype');
+}
+
 h3{
     padding: 3px;
 }
 
 .throneImageWrapper{
     text-align: center;
+}
+
+.descriptionWrapper{
+    padding-top: 20px;
+    text-align: center;
+
+    font-family: "KelmScot";
+    font-size: 16px;
 }
