@@ -1,0 +1,21 @@
+#root > div > header > div > div.rs-navbar-body > div > ul > li > a > a{
+    color: #a4a9b3;
+    text-decoration: none;
+}
+
+.NavMainLabel {
+    font-family: 'Game of Thrones';
+}
+
+#logo{
+    padding-left: 10px;
+}
+
+#root > div > header > div > div.rs-navbar-body > div > ul > .rs-nav-item-active > a{
+    color: yellow;
+}
+
+#root > div > header > div > div.rs-navbar-body > div.rs-nav.rs-nav-default.rs-navbar-nav.rs-navbar-right.rs-nav-horizontal > ul > .rs-nav-item-active > a{
+    color: yellow;
+}
+

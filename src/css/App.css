@@ -1,0 +1,32 @@
+.App {
+
+}
+@font-face {
+    font-family: 'Game of Thrones';
+    src: local('Game of Thrones'), url(../fonts/got.ttf) format('truetype');
+}
+
+.panelLabel{
+    font-size: 24px;
+    font-family: 'Game of Thrones';
+}
+
+.house{
+    padding-bottom: 5px;
+}
+
+.playerName{
+    padding-bottom: 15px;
+}
+
+#root > div > div > div > div:nth-child(2) > div > div.rs-panel-body > div > input:hover{
+    border-color: yellow;
+}
+
+#root > div > div > div > div:nth-child(2) > div > div.rs-panel-body > .rs-input-group-inside input:focus{
+    border-color: yellow;
+}
+
+#root > div > div > div > div > div > div > div > div > div > div > div > div.rs-panel-heading{
+    font-family: 'Game of Thrones';
+}
