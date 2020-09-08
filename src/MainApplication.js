@@ -18,6 +18,8 @@ class MainApplication extends React.Component {
                 isTyrellSelected: false,
                 isLannisterSelected: false,
                 isGreyjoySelected: false,
+                isArrynSelected: false,
+                isTargaryenSelected: false,
                 selected: []
             },
             players:[
@@ -36,6 +38,8 @@ class MainApplication extends React.Component {
         this.onClickStark = this.onClickStark.bind(this);
         this.onClickTyrell = this.onClickTyrell.bind(this);
         this.onClickMartell = this.onClickMartell.bind(this);
+        this.onClickArryn = this.onClickArryn.bind(this);
+        this.onClickTargaryen = this.onClickTargaryen.bind(this);
         this.recalculateNumberOfPlayers = this.recalculateNumberOfPlayers.bind(this);
         this.onClickTossThrones = this.onClickTossThrones.bind(this);
         this.inputOnChange = this.inputOnChange.bind(this);
@@ -141,6 +145,28 @@ class MainApplication extends React.Component {
         this.setState(currentState);
     }
 
+    onClickArryn(){
+        let currentState = this.state;
+        currentState.isTossed = false;
+        currentState.houses.isArrynSelected = !this.state.houses.isArrynSelected;
+        currentState.numberOfPlayers = this.recalculateNumberOfPlayers(currentState.houses.isArrynSelected);
+        (currentState.houses.isArrynSelected) ?
+            currentState.houses.selected.push("House Arryn") :
+            currentState.houses.selected.splice(currentState.houses.selected.indexOf("House Arryn"),1)
+        this.setState(currentState);
+    }
+
+    onClickTargaryen(){
+        let currentState = this.state;
+        currentState.isTossed = false;
+        currentState.houses.isTargaryenSelected = !this.state.houses.isTargaryenSelected;
+        currentState.numberOfPlayers = this.recalculateNumberOfPlayers(currentState.houses.isTargaryenSelected);
+        (currentState.houses.isTargaryenSelected) ?
+            currentState.houses.selected.push("House Targaryen") :
+            currentState.houses.selected.splice(currentState.houses.selected.indexOf("House Targaryen"),1)
+        this.setState(currentState);
+    }
+
     recalculateNumberOfPlayers(isHouseSelected){
         let numberOfplayers = this.state.numberOfPlayers;
         return (isHouseSelected) ? ++numberOfplayers : --numberOfplayers;
@@ -212,6 +238,16 @@ class MainApplication extends React.Component {
                                             <House houseName="Martell" isSelected={this.state.houses.isMartellSelected} />
                                         </div>
                                     </FlexboxGrid.Item>
+                                    <FlexboxGrid.Item className="house" componentClass={Col} colspan={12} md={3}>
+                                        <div onClick={this.onClickArryn}>
+                                            <House houseName="Arryn" isSelected={this.state.houses.isArrynSelected} />
+                                        </div>
+                                    </FlexboxGrid.Item>
+                                    <FlexboxGrid.Item className="house" componentClass={Col} colspan={12} md={3}>
+                                        <div onClick={this.onClickTargaryen}>
+                                            <House houseName="Targaryen" isSelected={this.state.houses.isTargaryenSelected} />
+                                        </div>
+                                    </FlexboxGrid.Item>
                                 </FlexboxGrid>
                             </Panel>
                         </FlexboxGrid.Item>
@@ -263,9 +299,9 @@ class MainApplication extends React.Component {
                                                                     <House
                                                                         houseName={this.state.players[i].tossedHouse.split(" ")[1]}
                                                                         width="178"/>
-                                                                    <Panel
+                                                                    <Panel className="tossedCard"
                                                                         header={(!!this.state.players[i].name) ? this.state.players[i].name : ("Player " + (i + 1))}>
-                                                                        <h5>
+                                                                        <h5 className="houseName">
                                                                             {this.state.players[i].tossedHouse}
                                                                         </h5>
                                                                     </Panel>

@@ -5,12 +5,16 @@ import HouseLannister from '../images/houses/house_lannister.jpg';
 import HouseStark from '../images/houses/house_stark.jpg';
 import HouseTyrell from '../images/houses/house_tyrell.jpg';
 import HouseMartell from '../images/houses/house_martell.jpg';
+import HouseTargaryen from '../images/houses/house_targaryen.jpg';
+import HouseArryn from '../images/houses/house_arryn.jpg';
 import houseBaratheonSelected from '../images/houses/selected/house_baratheon_selected.jpg';
 import HouseGreyjoySelected from '../images/houses/selected/house_greyjoy_selected.jpg';
 import HouseLannisterSelected from '../images/houses/selected/house_lannister_selected.jpg';
 import HouseStarkSelected from '../images/houses/selected/house_stark_selected.jpg';
 import HouseTyrellSelected from '../images/houses/selected/house_tyrell_selected.jpg';
 import HouseMartellSelected from '../images/houses/selected/house_martell_selected.jpg';
+import HouseTargaryenSelected from '../images/houses/selected/house_targaryan_selected.jpg';
+import HouseArrynSelected from '../images/houses/selected/house_arryn_selected.jpg';
 
 class House extends React.Component {
 
@@ -50,6 +54,12 @@ class House extends React.Component {
                 break;
             case "Lannister":
                 houseType = !!this.props.isSelected ? HouseLannisterSelected : HouseLannister;
+                break;
+            case "Arryn":
+                houseType = !!this.props.isSelected ? HouseArrynSelected : HouseArryn;
+                break;
+            case "Targaryen":
+                houseType = !!this.props.isSelected ? HouseTargaryenSelected : HouseTargaryen;
                 break;
             default:
                 break;
